@@ -1,11 +1,5 @@
-module.exports = (input) => {
-  let width = input[0].length;
-  let height = input.length;
-  let trees = 0;
-  let x = 3; 
-  let y = 1;
-
-  let hill = Array(height).fill().map(() => Array(width).fill('⛰️'));
+exports.createHill = (input, width, height) => {
+  const hill = Array(height).fill().map(() => Array(width).fill('⛰️'));
   input.forEach((row, i) => {
     row.split('').forEach((letter, j) => {
       if (letter === '#') {
@@ -13,6 +7,16 @@ module.exports = (input) => {
       }
     });
   });
+  return hill;
+}
+
+exports.solve = (input) => {
+  let width = input[0].length;
+  let height = input.length;
+  let hill = this.createHill(input, width, height);
+  let trees = 0;
+  let x = 3; 
+  let y = 1;
 
   while (y < height) {
     if (hill[y][x % width] === '🎄') {

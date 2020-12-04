@@ -1,17 +1,10 @@
-module.exports = (input) => {
+const { createHill } = require('./part1.js');
+
+exports.solve = (input) => {
   let width = input[0].length;
   let height = input.length;
-
-  // Set up the hill
-  let hill = Array(height).fill().map(() => Array(width).fill('⛰️'));
-  input.forEach((row, i) => {
-    row.split('').forEach((letter, j) => {
-      if (letter === '#') {
-        hill[i][j] = '🎄';
-      }
-    });
-  });
-
+  let hill = createHill(input, width, height);
+  
   class Collision {
     constructor(slopeX, slopeY) {
       this.trees = 0;

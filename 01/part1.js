@@ -1,4 +1,4 @@
-module.exports = (input) => {
+exports.solve = (input) => {
   const checkNum = 2020;
   const arr = input.map(num => { return parseInt(num) })
 

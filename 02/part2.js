@@ -1,4 +1,4 @@
-module.exports = (input) => {
+exports.solve = (input) => {
   let validPasswords = 0;
 
   input.forEach(password => {
