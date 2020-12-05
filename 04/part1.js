@@ -1,5 +1,5 @@
 
-function parsePassportData(data) {
+exports.parsePassportData = (data) => {
   let passports = [];
 
   // todo: do this more efficiently (regex?)
@@ -16,15 +16,11 @@ function parsePassportData(data) {
   return passports;
 }
 
+exports.getPassportsWithRequiredFields = (passports) => {
+  return passports.filter(passport => (passport.size === 7 && !passport.has('cid')) || passport.size === 8);
+}
+
 exports.solve = (input) => {
-  let validCount = 0;
-  const parssedPassports = parsePassportData(input);
-  
-  parssedPassports.forEach(passport => {
-    if ((passport.size === 7 && !passport.has('cid')) || passport.size === 8) {
-      validCount++;
-    }
-  });
-  
-  return validCount;
+  const parssedPassports = this.parsePassportData(input);
+  return this.getPassportsWithRequiredFields(parssedPassports).length;
 }
