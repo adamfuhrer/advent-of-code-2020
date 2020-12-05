@@ -19,13 +19,15 @@ class Passport {
     return this.getNumberFromBSPInstructions(column, 'R', 'L', 7);
   }
 
-  static getNumberFromBSPInstructions(instructions, upperInstruction, lowerCharInstruction, upperLimit) {
+  static getNumberFromBSPInstructions(instructions, upperCharInstruction, lowerCharInstruction, upperLimit) {
     let min = 0;
 
+    // Max value is the accumulator (initialValue: upperLimit)
+    // Returns once we've recursively reached the end
     return instructions.split('').reduce((max, char) => {
       let diff = this.getMiddleNumBetweenRange(min, max);
 
-      if (char === upperInstruction) {
+      if (char === upperCharInstruction) {
         min = min + diff;
       } else if (char === lowerCharInstruction) {
         max = max - diff;
