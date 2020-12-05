@@ -1,0 +1,22 @@
+{
+  "name": "advent-of-code",
+  "version": "1.0.0",
+  "description": "An attempt at the 2020 solutions",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamfuhrer/advent-of-code-2020.git"
+  },
+  "author": "Adam Fuhrer",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adamfuhrer/advent-of-code-2020/issues"
+  },
+  "homepage": "https://github.com/adamfuhrer/advent-of-code-2020#readme",
+  "dependencies": {
+    "chalk": "^4.1.0"
+  }
+}
