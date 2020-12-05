@@ -1,19 +1,20 @@
 const { createHill } = require('./part1.js');
 
+class Collision {
+  constructor(slopeX, slopeY) {
+    this.trees = 0;
+    this.x = 0;
+    this.y = 0;
+    this.slopeY = slopeY;
+    this.slopeX = slopeX;
+  }
+}
+
 exports.solve = (input) => {
+  input = input.split('\n');
   let width = input[0].length;
   let height = input.length;
   let hill = createHill(input, width, height);
-  
-  class Collision {
-    constructor(slopeX, slopeY) {
-      this.trees = 0;
-      this.x = 0;
-      this.y = 0;
-      this.slopeY = slopeY;
-      this.slopeX = slopeX;
-    }
-  }
 
   const collisions = [
     new Collision(1, 1),

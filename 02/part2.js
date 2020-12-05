@@ -1,4 +1,5 @@
 exports.solve = (input) => {
+  input = input.split('\n');
   let validPasswords = 0;
 
   input.forEach(password => {

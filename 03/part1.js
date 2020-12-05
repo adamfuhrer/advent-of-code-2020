@@ -11,6 +11,7 @@ exports.createHill = (input, width, height) => {
 }
 
 exports.solve = (input) => {
+  input = input.split('\n');
   let width = input[0].length;
   let height = input.length;
   let hill = this.createHill(input, width, height);
