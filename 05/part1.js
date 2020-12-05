@@ -23,7 +23,7 @@ class Passport {
     let min = 0;
 
     return instructions.split('').reduce((max, char) => {
-      let diff = this.getDifferenceBetweenRange(min, max);
+      let diff = this.getMiddleNumBetweenRange(min, max);
 
       if (char === upperInstruction) {
         min = min + diff;
@@ -39,7 +39,7 @@ class Passport {
     return (row * 8) + column;
   }
 
-  static getDifferenceBetweenRange(min, max) {
+  static getMiddleNumBetweenRange(min, max) {
     return Math.ceil((max - min) / 2); // Using ceiling here since 0 is always initially included in the range 
   }
 }
@@ -88,13 +88,17 @@ function parse(input) {
   return { rows, columns }
 }
 
+function generatePassports(passports) {
+  const rows = Passports.getRows(passports.rows);
+  const columns = Passports.getColumns(passports.columns);
+  return Passports.getPassports(rows, columns);
+}
+
 function solve(input) {
   const parsed = parse(input);
-  const rows = Passports.getRows(parsed.rows);
-  const columns = Passports.getColumns(parsed.columns);
-  const passports = Passports.getPassports(rows, columns);
+  const passports = generatePassports(parsed);
   const ids = passports.map(p => p.id);
   return Math.max(...ids);
 }
 
-module.exports = { solve, parse, Passport, Passports };
+module.exports = { solve, parse, generatePassports, Passport, Passports };

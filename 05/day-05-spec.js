@@ -1,6 +1,6 @@
-const { Passport } = require('./part1');
+const { Passport } = require('./part1.js');
 
-describe("Passport", function() {
+describe("Day 5", () => {
   it("can get a valid row from a boarding pass", () => {
     expect(Passport.getRow('BBBBBBB')).toBe(127); // upper
     expect(Passport.getRow('FFFFFFF')).toBe(0); // lower
