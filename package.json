@@ -16,7 +16,8 @@
     "url": "https://github.com/adamfuhrer/advent-of-code-2020/issues"
   },
   "homepage": "https://github.com/adamfuhrer/advent-of-code-2020#readme",
-  "dependencies": {
-    "chalk": "^4.1.0"
+  "devDependencies": {
+    "chalk": "^4.1.0",
+    "jasmine": "^3.6.3"
   }
 }
