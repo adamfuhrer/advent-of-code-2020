@@ -7,12 +7,16 @@ function getSortedPassportIds(passports) {
 }
 
 function getMissingSeatId(sortedIds) {
-  for (let i = sortedIds[0] + 1; i < sortedIds[sortedIds.length - 1]; i++) {
-    if (sortedIds[i + 1] !== sortedIds[i] + 1) {
-      return sortedIds[i] + 1; // the missing seat ID
+  try {
+    for (let i = sortedIds[0] + 1; i < sortedIds[sortedIds.length - 1]; i++) {
+      if (sortedIds[i + 1] !== sortedIds[i] + 1) {
+        return sortedIds[i] + 1; // the missing seat ID
+      }
     }
+    throw 'ID not found';
+  } catch (e) {
+    console.error(e);
   }
-  return '# ID not found #';
 }
 
 function solve(input) {

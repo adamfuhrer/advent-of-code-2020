@@ -22,8 +22,11 @@ class Passport {
   static getNumberFromBSPInstructions(instructions, upperCharInstruction, lowerCharInstruction, upperLimit) {
     let min = 0;
 
-    // Max value is the accumulator (initialValue: upperLimit)
-    // Returns once we've recursively reached the end
+    /**
+     * Max value is the accumulator (initialValue: upperLimit)
+     * Could have done opposite here and started from 0 as well, and will get same result
+     * Returns once we've recursively reached the last number in our instruction set
+     */
     return instructions.split('').reduce((max, char) => {
       let diff = this.getMiddleNumBetweenRange(min, max);
 
@@ -72,10 +75,6 @@ class Passports {
     }
     return passports;
   }
-  
-  static getPassportIds(passports) {
-    return passports.map(passport => ret)
-  }
 }
 
 function parse(input) {
@@ -103,4 +102,4 @@ function solve(input) {
   return Math.max(...ids);
 }
 
-module.exports = { solve, parse, generatePassports, Passport, Passports };
+module.exports = { solve, parse, generatePassports, Passport };

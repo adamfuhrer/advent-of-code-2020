@@ -10,7 +10,7 @@ class Collision {
   }
 }
 
-exports.solve = (input) => {
+function solve(input) {
   input = input.split('\n');
   let width = input[0].length;
   let height = input.length;
@@ -37,4 +37,6 @@ exports.solve = (input) => {
   })
 
   return answer;
-} 
+}
+
+module.exports = { solve };

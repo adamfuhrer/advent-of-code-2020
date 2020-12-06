@@ -1,4 +1,4 @@
-exports.createHill = (input, width, height) => {
+function createHill(input, width, height) {
   const hill = Array(height).fill().map(() => Array(width).fill('⛰️'));
   input.forEach((row, i) => {
     row.split('').forEach((letter, j) => {
@@ -10,11 +10,11 @@ exports.createHill = (input, width, height) => {
   return hill;
 }
 
-exports.solve = (input) => {
+function solve(input) {
   input = input.split('\n');
   let width = input[0].length;
   let height = input.length;
-  let hill = this.createHill(input, width, height);
+  let hill = createHill(input, width, height);
   let trees = 0;
   let x = 3; 
   let y = 1;
@@ -29,3 +29,5 @@ exports.solve = (input) => {
 
   return trees;
 } 
+
+module.exports = { solve, createHill };
