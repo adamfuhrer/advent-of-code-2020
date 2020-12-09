@@ -5,8 +5,8 @@ class Passport {
    * 'F' insruction takes the lower bound path
    * Range: 0 - 127 -- (Since 0 is implied, only need to pass in the upper limit)
    */
-  static getRow(row) {
-    return this.getNumberFromBSPInstructions(row, 'B', 'F', 127);
+  static getRowNumber(rowInstructions) {
+    return this.getNumberFromBSPInstructions(rowInstructions, 'B', 'F', 127);
   }
 
   /**
@@ -15,8 +15,8 @@ class Passport {
    * 'L' insruction takes the lower bound
    * Range: 0 - 7 -- (Since 0 is implied, only need to pass in the upper limit)
    */
-  static getColumn(column) {
-    return this.getNumberFromBSPInstructions(column, 'R', 'L', 7);
+  static getColumnNumber(columnInstructions) {
+    return this.getNumberFromBSPInstructions(columnInstructions, 'R', 'L', 7);
   }
 
   static getNumberFromBSPInstructions(instructions, upperCharInstruction, lowerCharInstruction, upperLimit) {
@@ -51,11 +51,11 @@ class Passport {
 
 class Passports {
   static getRows(rows) {
-    return rows.map(row => Passport.getRow(row));
+    return rows.map(instructions => Passport.getRowNumber(instructions));
   }
   
   static getColumns(columns) {
-    return columns.map(column => Passport.getColumn(column));
+    return columns.map(instructions => Passport.getColumnNumber(instructions));
   }
 
   static getPassports(rows, columns) {
