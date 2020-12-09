@@ -1,4 +1,4 @@
-const { generatePassports, parse } = require('./part1.js');
+const { Passports } = require('./part1.js');
 
 function getSortedPassportIds(passports) {
   return passports.sort((a, b) => {
@@ -20,9 +20,8 @@ function getMissingSeatId(sortedIds) {
 }
 
 function solve(input) {
-  const parsed = parse(input);
-  const passports = generatePassports(parsed);
-  const sorted = getSortedPassportIds(passports.map(p => p.id));
+  const passports = new Passports(input);
+  const sorted = getSortedPassportIds(passports.passportList.map(p => p.id));
   return getMissingSeatId(sorted);
 }
 

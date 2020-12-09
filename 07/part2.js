@@ -7,8 +7,7 @@ class BagCounter extends LuggageClaim {
   constructor(...args) {
     super(...args);
     this.totalIncludedBagsCount = 0;
-    // Start the count at 1 (the "shiny gold" bag)
-    // and Call the function to start getting total number of bags included in a single bag
+    // Start the count at 1 (the "shiny gold" bag) and call the function to start getting total number of bags included in a single bag
     this.setIncludedBagsCount(this.desiredBag, 1); // desiredBag is set in super class 
   }
 
@@ -34,4 +33,4 @@ function solve(input) {
   return totalIncludedBagsCount;
 }
 
-module.exports = { solve, BagCounter };
+module.exports = { solve };

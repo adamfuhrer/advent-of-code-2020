@@ -4,38 +4,38 @@ const input = fs.readFileSync('07/input.txt', 'utf8');
 
 describe("Day 7 - part 1", () => {
   it("can get the color of a bag", () => {
-    const h1 = new Bag('drab tan bags contain 4 clear gold bags.'); 
-    expect(h1.color).toBe('drab tan');
+    const b1 = new Bag('drab tan bags contain 4 clear gold bags.'); 
+    expect(b1.color).toBe('drab tan');
 
-    const h2 = new Bag('pale lime bags contain 1 dim salmon bag, 5 faded salmon bags, 1 dim turquoise bag.'); 
-    expect(h2.color).toBe('pale lime');
+    const b2 = new Bag('pale lime bags contain 1 dim salmon bag, 5 faded salmon bags, 1 dim turquoise bag.'); 
+    expect(b2.color).toBe('pale lime');
   });
 
   it("can get the content of a bag", () => {
     const c1 = new Map();
     c1.set('muted gold', 4);
-    const h1 = new Bag('wavy turquoise bags contain 4 muted gold bags.'); 
-    expect(h1.content).toEqual(c1);
+    const b1 = new Bag('wavy turquoise bags contain 4 muted gold bags.'); 
+    expect(b1.content).toEqual(c1);
 
     const c2 = new Map();
     c2.set('dull gray', 1);
     c2.set('posh silver', 3);
     c2.set('dark aqua', 3);
-    const h2 = new Bag('pale lavender bags contain 1 dull gray bag, 3 posh silver bags, 3 dark aqua bags.'); 
-    expect(h2.content).toEqual(c2);
+    const b2 = new Bag('pale lavender bags contain 1 dull gray bag, 3 posh silver bags, 3 dark aqua bags.'); 
+    expect(b2.content).toEqual(c2);
 
     const c3 = new Map();
     c3.set('striped gold', 4);
     c3.set('striped silver', 5);
     c3.set('mirrored turquoise', 4);
     c3.set('striped turquoise', 5);
-    const h3 = new Bag('drab coral bags contain 4 striped gold bags, 5 striped silver bags, 4 mirrored turquoise bags, 5 striped turquoise bags.'); 
-    expect(h3.content).toEqual(c3);
+    const b3 = new Bag('drab coral bags contain 4 striped gold bags, 5 striped silver bags, 4 mirrored turquoise bags, 5 striped turquoise bags.'); 
+    expect(b3.content).toEqual(c3);
   });
 
   it("can get an empty bag", () => {
-    const h1 = new Bag('posh black bags contain no other bags.'); 
-    expect(h1.content.size).toBe(0);
+    const b = new Bag('posh black bags contain no other bags.'); 
+    expect(b.content.size).toBe(0);
   });
 
   it("solve question from sample: can get all possible unique bags containing a bag", () => {

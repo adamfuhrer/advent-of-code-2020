@@ -39,19 +39,17 @@ class Bag {
 class LuggageClaim {
   constructor(input, desiredBag) {
     this.bags = this.parseBags(input); // all bags in the luggage claim
-    this.desiredBag = desiredBag; // the desried bag were looking for
-    this.parentBags = []; // list of all possible bags containing the desired bag
+    this.desiredBag = desiredBag; // the desired bag were looking for (either all its parents or all its children)
+    this.parentBags = new Set(); // list of all possible unique bags containing the desired bag
     this.setContainingBags(this.getParentBagsContainingABag(this.desiredBag)); // start from inner most desired bag and go up the tree 
   }
   
   setContainingBags(parents) {
     parents.forEach(bag => {
-      // Only store unique bags since multiple children can lead to the same parent
-      if (!this.parentBags.includes(bag)) {
-        this.parentBags.push(bag);
-      }
+      // Add the bag to the set (only store unique bags since multiple children can lead to the same parent)
+      this.parentBags.add(bag);
   
-      // Recursivley go up the tree of bags to see if the new parent bag has its own parents containing its color
+      // Recursively go up the tree of bags to see if the new parent bag has its own parents containing its color
       if (this.getParentBagsContainingABag(bag.color).length > 0) {
         this.setContainingBags(this.getParentBagsContainingABag(bag.color));
       }
@@ -73,7 +71,7 @@ class LuggageClaim {
 
 function solve(input) {
   const { parentBags } = new LuggageClaim(input, "shiny gold"); // 🏆
-  return parentBags.length;
+  return parentBags.size;
 }
 
 module.exports = { solve, Bag, LuggageClaim };

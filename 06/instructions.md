@@ -11,7 +11,7 @@ abcz
 In this group, there are 6 questions to which anyone answered "yes": a, b, c, x, y, and z. (Duplicate answers to the same question don't count extra; each question counts at most once.)
 
 Another group asks for your help, then another, and eventually you've collected answers from every group on the plane (your puzzle input). Each group's answers are separated by a blank line, and within each group, each person's answers are on a single line. For example:
-
+```
 abc
 
 a
@@ -27,6 +27,7 @@ a
 a
 
 b
+```
 This list represents answers from five groups:
 
 The first group contains one person who answered "yes" to 3 questions: a, b, and c.
@@ -46,7 +47,7 @@ As you finish the last group's customs declaration, you notice that you misread 
 You don't need to identify the questions to which anyone answered "yes"; you need to identify the questions to which everyone answered "yes"!
 
 Using the same example as above:
-
+```
 abc
 
 a
@@ -62,6 +63,7 @@ a
 a
 
 b
+```
 This list represents answers from five groups:
 
 In the first group, everyone (all 1 person) answered "yes" to 3 questions: a, b, and c.
