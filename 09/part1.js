@@ -1,16 +1,17 @@
 function getInvalidNumber(preambleLength, nums) {
   checkNext: for (let checkNum = preambleLength; checkNum < nums.length; checkNum++) {
-    for (let start = checkNum - preambleLength, end = preambleLength + checkNum; 
-             start < checkNum;
-             start++, end++) {
-      let check = start + 1;
-      while (check < end) {
-        if (nums[start] + nums[check] === nums[checkNum]) {
+    const end = preambleLength + checkNum; 
+
+    for (let start = checkNum - preambleLength; start < checkNum; start++) {
+      let secondNum = start + 1; // start at the second number
+      
+      while (secondNum < end) {
+        if (nums[start] + nums[secondNum] === nums[checkNum]) {
           // For first iteration: if preambleLength length is 25, check num would be the 26th num
           // Found two numbers in the range which add to the check number 
           continue checkNext; 
         }
-        ++check; // Iterate through the range of from the {start} to the {start} + {preambleLength}
+        ++secondNum; // Iterate through the range of from the {start} to the {start} + {preambleLength}
       }
     }
 
